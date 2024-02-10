@@ -11,6 +11,9 @@ body {
 
 .container {
   perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {
@@ -200,4 +203,10 @@ footer {
 
 .card.flip .back img {
   filter: blur(2px); /* Ajusta el valor del desenfoque según sea necesario */
+}
+
+#audioPlayer {
+  padding: 150px;
+  border-radius: 0px; /* Bordes redondeados */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }

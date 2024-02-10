@@ -82,3 +82,16 @@ yesButton.addEventListener('click', function() {
 closePopupButton.addEventListener('click', function() {
   popup.style.display = 'none';
 });
+
+// Obtener referencia al elemento de audio
+var audio = document.getElementById("myAudio");
+
+// Reproducir la música
+function playMusic() {
+  audio.play();
+}
+
+// Pausar la música
+function pauseMusic() {
+  audio.pause();
+}
