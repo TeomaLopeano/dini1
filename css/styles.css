@@ -1,0 +1,213 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fde7e7; /* Rosa claro */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  perspective: 1000px;
+}
+
+.card {
+  width: 600px;
+  height: 372px;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.7);
+  transition: transform 3s; /* Transición para la rotación */
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.open-me {
+  position: absolute;
+  top: 10px; /* Ajusta la posición vertical según necesites */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Centra horizontalmente */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.front img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.back {
+  background-color: #ffcccc; /* Rosa claro */
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff99cc; /* Rosa oscuro */
+  color: white;
+  transition: transform 0.3s, font-size 0.3s; /* Añadimos transición para el tamaño del texto */
+}
+
+button#yesBtn {
+  background-color: #33cc33; /* Cambiar a verde */
+}
+
+button#noBtn {
+  background-color: #ff3333; /* Cambiar a rojo */
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  text-align: center;
+  background-color: #333; /* Color de fondo del footer */
+  color: white; /* Color del texto del footer */
+  padding: 20px 0; /* Espaciado interior del footer */
+  position: fixed; /* Fija el footer en la parte inferior de la ventana */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  z-index: 9999;
+  animation: fall 5s ease-out forwards; /* Aumentamos la duración de la animación */
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50vh); /* Cambiamos la posición inicial a la mitad de la pantalla */
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.image-cards {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.image-cards .card {
+  width: 180px; /* Tamaño de las miniaturas */
+  height: 180px; /* Tamaño de las miniaturas */
+  margin: 10px; /* Espacio entre las miniaturas */
+}
+
+.image-cards .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  filter: blur(4px);
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  display: none;
+  animation: fadeIn 0.7s ease-out;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+#closePopup {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff99cc;
+  color: white;
+  cursor: pointer;
+}
+
+#acceptPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  display: none;
+  animation: fadeIn 0.7s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#closeAcceptPopup {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff99cc;
+  color: white;
+  cursor: pointer;
+}
+
+.card.flip .back img {
+  filter: blur(2px); /* Ajusta el valor del desenfoque según sea necesario */
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 90%; /* Reducir el ancho */
+    height: auto; /* Altura automática para ajustarse al contenido */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 20px; /* Añadir un poco de espacio alrededor */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Reducir la sombra */
+  }
+}
